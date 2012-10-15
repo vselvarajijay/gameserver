@@ -1,0 +1,8 @@
+{% extends "base.jade" %}
+
+p game board
+#gameboard
+    .rows(data-bind="foreach:rows")
+        .columns(data-bind="foreach: columns")
+            p 
+

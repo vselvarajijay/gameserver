@@ -1,0 +1,18 @@
+!!! 5
+html(lang="en")
+    head
+        link(href="/static/css/all.css", rel="stylesheet", type="text/css")
+        script(src="http://ajax.aspnetcdn.com/ajax/knockout/knockout-2.1.0.js", type="text/javascript")
+        script(src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.8.0.js", type="text/javascript")
+        script(src="/static/js/application/application.js", type="text/javascript", defer="defer")
+    body
+        #container
+            .cells(id="chess", data-bind="foreach: boardpieces")
+                .cell(data-bind="attr:{id: position.column()+position.row()}, click: select")
+                    // p(data-bind="text: position.column()+position.row()")
+                    // p(data-bind="text: chess_piece().name")
+                    a(data-bind="text: chess_piece().img")
+            .moves(id="moves", data-bind="foreach: moves")
+                .move
+                    p(data-bind="text: name + ' '+ from_column+from_row + '-' + to_column+to_row")
+
